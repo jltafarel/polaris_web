@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  peso: 1.5
+  data: 2014-03-14
+  animal_id: 
+
+two:
+  peso: 1.5
+  data: 2014-03-14
+  animal_id: 

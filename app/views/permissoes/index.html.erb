@@ -1,0 +1,27 @@
+<h1>Listing permissoes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permissao</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permissoes.each do |permissao| %>
+      <tr>
+        <td><%= permissao.permissao %></td>
+        <td><%= link_to 'Show', permissao %></td>
+        <td><%= link_to 'Edit', edit_permissao_path(permissao) %></td>
+        <td><%= link_to 'Destroy', permissao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Permissao', new_permissao_path %>

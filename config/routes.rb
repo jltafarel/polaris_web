@@ -1,4 +1,40 @@
 Polaris::Application.routes.draw do
+  resources :exames
+
+  resources :tipo_exames
+
+  resources :cios
+
+  resources :coberturas
+
+  resources :imagens
+
+  resources :vacinas
+
+  resources :pesagens
+
+  resources :animais
+
+  resources :nascimentos
+
+  resources :usuarios
+
+  resources :permissoes
+
+  resources :propriedades
+
+  resources :informacoes
+
+  resources :classificacoes
+
+  resources :medicamentos
+
+  resources :tipo_medicamentos
+
+  resources :tipo_vacinas
+
+  resources :racas
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

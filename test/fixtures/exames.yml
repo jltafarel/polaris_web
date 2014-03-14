@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_exame_id: 
+  data: 2014-03-14
+  animal_id: 
+
+two:
+  tipo_exame_id: 
+  data: 2014-03-14
+  animal_id: 

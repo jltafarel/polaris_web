@@ -1,0 +1,27 @@
+<h1>Listing nascimentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nascimentos.each do |nascimento| %>
+      <tr>
+        <td><%= nascimento.data %></td>
+        <td><%= link_to 'Show', nascimento %></td>
+        <td><%= link_to 'Edit', edit_nascimento_path(nascimento) %></td>
+        <td><%= link_to 'Destroy', nascimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nascimento', new_nascimento_path %>

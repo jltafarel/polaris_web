@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @cio.data %>
+</p>
+
+<p>
+  <strong>Previsao proximo:</strong>
+  <%= @cio.previsao_proximo %>
+</p>
+
+<p>
+  <strong>Cobertura:</strong>
+  <%= @cio.cobertura %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @cio.animal %>
+</p>
+
+<%= link_to 'Edit', edit_cio_path(@cio) %> |
+<%= link_to 'Back', cios_path %>

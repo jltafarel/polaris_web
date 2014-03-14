@@ -1,4 +1,10 @@
 Polaris::Application.routes.draw do
+  devise_for :users
+  get "pages/about"
+  get "pages/contact"
+  get "home/index"
+  
+  
   resources :exames
 
   resources :tipo_exames
@@ -34,6 +40,8 @@ Polaris::Application.routes.draw do
   resources :tipo_vacinas
 
   resources :racas
+  
+  root :to => 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

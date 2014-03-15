@@ -6,7 +6,27 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="fundoTela">
+	<div id='cssmenu'>
+	<ul>
+   		<li class='active'><a href='/'><span>Principal</span></a></li>
+   		<li class='has-sub'><a href='#'><span>Cadastros</span></a>
+      		<ul>
+         		<li><a href='/animais/new'><span>Animais</span></a></li>
+         		<li><a href='/exames/new'><span>Exames</span></a></li>
+         		<li><a href='/medicamentos/new'><span>Medicamentos</span></a></li>
+      		</ul>
+   		</li>
+   		<li class='has-sub'><a href='#'><span>Relatorios</span></a>
+      		<ul>
+         		<li><a href='/animais/'><span>Animais</span></a></li>
+         		<li><a href='/exames/'><span>Exames</span></a></li>
+         		<li><a href='#'><span>Medicamentos</span></a></li>
+      		</ul>
+   		</li>
+   		<li class='last'><a href='#'><span>Opções</span></a></li>
+	</ul>
+</div>
 
 <%= yield %>
 

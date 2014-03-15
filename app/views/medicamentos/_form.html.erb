@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_medicamento_id %><br>
-    <%= f.text_field :tipo_medicamento_id %>
+    <%= f.select :tipo_medicamento_id, TipoMedicamento.find(:all).collect {|item| [item.tipo_medicamento, item.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

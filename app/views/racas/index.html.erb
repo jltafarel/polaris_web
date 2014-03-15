@@ -16,7 +16,7 @@
         <td><%= raca.raca %></td>
         <td><%= link_to 'Show', raca %></td>
         <td><%= link_to 'Edit', edit_raca_path(raca) %></td>
-        <td><%= link_to 'Destroy', raca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', raca, method: :delete, data: { confirm: 'Deseja deletar a raça '+raca.raca } %></td>
       </tr>
     <% end %>
   </tbody>

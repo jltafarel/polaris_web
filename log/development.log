@@ -1,0 +1,456 @@
+  [1m[36m (84.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (199.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRacas (20140314182746)
+  [1m[35m (103.8ms)[0m  CREATE TABLE `racas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raca` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182746')
+  [1m[36m (43.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTipoVacinas (20140314182749)
+  [1m[35m (109.1ms)[0m  CREATE TABLE `tipo_vacinas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tipo_vacina` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182749')
+  [1m[36m (40.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTipoMedicamentos (20140314182751)
+  [1m[35m (97.8ms)[0m  CREATE TABLE `tipo_medicamentos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tipo_medicamento` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182751')
+  [1m[36m (29.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMedicamentos (20140314182753)
+  [1m[35m (98.9ms)[0m  CREATE TABLE `medicamentos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `tipo_medicamento_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (176.7ms)[0m  [1mCREATE INDEX `index_medicamentos_on_tipo_medicamento_id` ON `medicamentos` (`tipo_medicamento_id`) [0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182753')[0m
+  [1m[35m (40.6ms)[0m  COMMIT
+Migrating to CreateClassificacoes (20140314182755)
+  [1m[36m (110.1ms)[0m  [1mCREATE TABLE `classificacoes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `classificao` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182755')[0m
+  [1m[35m (41.1ms)[0m  COMMIT
+Migrating to CreateInformacoes (20140314182757)
+  [1m[36m (110.0ms)[0m  [1mCREATE TABLE `informacoes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182757')[0m
+  [1m[35m (40.9ms)[0m  COMMIT
+Migrating to CreatePropriedades (20140314182759)
+  [1m[36m (99.6ms)[0m  [1mCREATE TABLE `propriedades` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182759')[0m
+  [1m[35m (41.5ms)[0m  COMMIT
+Migrating to CreatePermissoes (20140314182801)
+  [1m[36m (109.7ms)[0m  [1mCREATE TABLE `permissoes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `permissao` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182801')[0m
+  [1m[35m (41.1ms)[0m  COMMIT
+Migrating to CreateUsuarios (20140314182804)
+  [1m[36m (109.4ms)[0m  [1mCREATE TABLE `usuarios` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `senha` varchar(255), `permissao_id` int(11), `propriedade_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (188.0ms)[0m  CREATE INDEX `index_usuarios_on_permissao_id` ON `usuarios` (`permissao_id`) 
+  [1m[36m (154.9ms)[0m  [1mCREATE INDEX `index_usuarios_on_propriedade_id` ON `usuarios` (`propriedade_id`) [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182804')[0m
+  [1m[35m (41.2ms)[0m  COMMIT
+Migrating to CreateNascimentos (20140314182806)
+  [1m[36m (109.1ms)[0m  [1mCREATE TABLE `nascimentos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182806')[0m
+  [1m[35m (41.8ms)[0m  COMMIT
+Migrating to CreateAnimais (20140314182808)
+  [1m[36m (109.5ms)[0m  [1mCREATE TABLE `animais` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `identificacao` varchar(255), `raca_id` int(11), `propriedade_id` int(11), `classificacao_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (154.9ms)[0m  CREATE INDEX `index_animais_on_raca_id` ON `animais` (`raca_id`) 
+  [1m[36m (154.8ms)[0m  [1mCREATE INDEX `index_animais_on_propriedade_id` ON `animais` (`propriedade_id`) [0m
+  [1m[35m (243.1ms)[0m  CREATE INDEX `index_animais_on_classificacao_id` ON `animais` (`classificacao_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182808')
+  [1m[36m (41.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePesagens (20140314182810)
+  [1m[35m (119.8ms)[0m  CREATE TABLE `pesagens` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `peso` float, `data` date, `animal_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (156.8ms)[0m  [1mCREATE INDEX `index_pesagens_on_animal_id` ON `pesagens` (`animal_id`) [0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182810')[0m
+  [1m[35m (40.4ms)[0m  COMMIT
+Migrating to CreateVacinas (20140314182812)
+  [1m[36m (119.9ms)[0m  [1mCREATE TABLE `vacinas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tipo_vacina_id` int(11), `medicamento_id` int(11), `animal_id` int(11), `data` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (154.7ms)[0m  CREATE INDEX `index_vacinas_on_tipo_vacina_id` ON `vacinas` (`tipo_vacina_id`) 
+  [1m[36m (165.6ms)[0m  [1mCREATE INDEX `index_vacinas_on_medicamento_id` ON `vacinas` (`medicamento_id`) [0m
+  [1m[35m (154.2ms)[0m  CREATE INDEX `index_vacinas_on_animal_id` ON `vacinas` (`animal_id`) 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182812')
+  [1m[36m (51.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateImagens (20140314182815)
+  [1m[35m (98.0ms)[0m  CREATE TABLE `imagens` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` varchar(255), `animal_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (165.9ms)[0m  [1mCREATE INDEX `index_imagens_on_animal_id` ON `imagens` (`animal_id`) [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140314182815')[0m
+  [1m[35m (40.8ms)[0m  COMMIT
+Migrating to CreateCoberturas (20140314182817)
+  [1m[36m (142.1ms)[0m  [1mCREATE TABLE `coberturas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data` date, `animal_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (231.7ms)[0m  CREATE INDEX `index_coberturas_on_animal_id` ON `coberturas` (`animal_id`) 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182817')
+  [1m[36m (29.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCios (20140314182819)
+  [1m[35m (98.7ms)[0m  CREATE TABLE `cios` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data` date, `previsao_proximo` date, `cobertura_id` int(11), `animal_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (143.8ms)[0m  [1mCREATE INDEX `index_cios_on_cobertura_id` ON `cios` (`cobertura_id`) [0m
+  [1m[35m (243.4ms)[0m  CREATE INDEX `index_cios_on_animal_id` ON `cios` (`animal_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182819')
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTipoExames (20140314182821)
+  [1m[35m (109.8ms)[0m  CREATE TABLE `tipo_exames` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tipo_exame` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182821')
+  [1m[36m (53.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExames (20140314182823)
+  [1m[35m (112.4ms)[0m  CREATE TABLE `exames` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tipo_exame_id` int(11), `data` date, `animal_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (166.2ms)[0m  [1mCREATE INDEX `index_exames_on_tipo_exame_id` ON `exames` (`tipo_exame_id`) [0m
+  [1m[35m (231.9ms)[0m  CREATE INDEX `index_exames_on_animal_id` ON `exames` (`animal_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314182823')
+  [1m[36m (41.4ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20140314230118)
+  [1m[35m (99.0ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (198.9ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`) [0m
+  [1m[35m (176.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140314230118')
+  [1m[36m (41.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/animais" for 127.0.0.1 at 2014-03-15 11:38:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AnimaisController#index as HTML
+  [1m[35mAnimal Load (0.6ms)[0m  SELECT `animais`.* FROM `animais`
+  Rendered animais/index.html.erb within layouts/application (3.2ms)
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/animais.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/cios.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/classificacoes.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/coberturas.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/exames.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/home.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/imagens.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/informacoes.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/medicamentos.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/nascimentos.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/pages.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/permissoes.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/pesagens.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/propriedades.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/racas.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/scaffolds.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/tipo_exames.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/tipo_medicamentos.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/tipo_vacinas.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/usuarios.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Warning. Error encountered while saving cache 93c8743269c59992fc7a190ef55594978cb871c2/vacinas.css.scssc: can't dump anonymous class #<Class:0x00000003646c40>
+
+Completed 200 OK in 4613ms (Views: 4586.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/animais" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+Processing by AnimaisController#index as HTML
+  [1m[36mAnimal Load (0.2ms)[0m  [1mSELECT `animais`.* FROM `animais`[0m
+  Rendered animais/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/coberturas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/classificacoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/cios.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/animais.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/exames.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/imagens.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/informacoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/medicamentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/nascimentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/permissoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/pesagens.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/propriedades.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/racas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/tipo_exames.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/tipo_medicamentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/tipo_vacinas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/vacinas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/animais.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/cios.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/classificacoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/coberturas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/exames.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/imagens.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/informacoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/medicamentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/nascimentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/pesagens.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/propriedades.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/permissoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/racas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/tipo_exames.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:46 -0300
+
+
+Started GET "/assets/tipo_medicamentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:47 -0300
+
+
+Started GET "/assets/tipo_vacinas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:47 -0300
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:47 -0300
+
+
+Started GET "/assets/vacinas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:47 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:47 -0300
+
+
+Started GET "/animais/new" for 127.0.0.1 at 2014-03-15 11:38:49 -0300
+Processing by AnimaisController#new as HTML
+  Rendered animais/_form.html.erb (25.1ms)
+  Rendered animais/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 53ms (Views: 49.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/animais" for 127.0.0.1 at 2014-03-15 11:38:50 -0300
+Processing by AnimaisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xXGSFkl2aql19bttFwUHA1xZTqajJQkXBFKC/QC5Mqo=", "animal"=>{"nome"=>"", "identificacao"=>"", "raca_id"=>"", "propriedade_id"=>"", "classificacao_id"=>""}, "commit"=>"Create Animal"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAnimal Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `animais` WHERE `animais`.`identificacao` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered animais/_form.html.erb (9.3ms)
+  Rendered animais/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 44ms (Views: 29.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/classificacoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/animais.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/cios.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/coberturas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/exames.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/imagens.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/informacoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/medicamentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/nascimentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/permissoes.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/pesagens.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/propriedades.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/racas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_exames.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_medicamentos.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_vacinas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/vacinas.css?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/animais.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/cios.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/classificacoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/coberturas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/exames.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/imagens.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/informacoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/medicamentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/nascimentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/permissoes.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/pesagens.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/propriedades.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/racas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_exames.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_medicamentos.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/tipo_vacinas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/vacinas.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-15 11:38:51 -0300

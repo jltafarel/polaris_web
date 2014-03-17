@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+.logo{
+	float: left;
+	padding-right: 2%;
+}
+
 #tabelaMargem{
   margin-left: 50px;
 }

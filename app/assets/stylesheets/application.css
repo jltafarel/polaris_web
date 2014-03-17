@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+#tabelaMargem{
+  margin-left: 50px;
+}
+
 #fundoTela {
 	background-color: #E7E6E6;
 }

@@ -5,12 +5,13 @@
 
       <ul>
       <% @animal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= msg%></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   
+  <div id="tabelaMargem">
   	<table>
   		<tr>
   			<td><%= f.label "Nome: " %></td>
@@ -36,5 +37,6 @@
   			<td colspan="2"><%= f.submit "Cadastrar"%></td>
     	</tr>	
     </table>	
-    		 	  	    	  	
+  </div>  	 
+  	  	    	  	
 <% end %>

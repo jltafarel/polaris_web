@@ -9,8 +9,9 @@
 <body id="fundoTela">
 	<div id='cssmenu'>
 	<%= link_to (image_tag 'logo.png'), root_path, class: 'logo' %>
+	<% if user_signed_in? %>
 	<ul>
-   		<li class='active'><a href='/'><span>Principal</span></a></li>
+   		<li><a href='/'><span>Principal</span></a></li>
    		<li class='has-sub'><a href='#'><span>Cadastros</span></a>
       		<ul>
          		<li><a href='/animais/new'><span>Animais</span></a></li>
@@ -25,8 +26,17 @@
          		<li><a href='#'><span>Medicamentos</span></a></li>
       		</ul>
    		</li>
-   		<li class='last'><a href='#'><span>Opções</span></a></li>
+   		<%= content_tag(:li, link_to("Opções", edit_user_registration_path), class: 'last')%>
+   		<%= content_tag(:li, link_to("Logout", destroy_user_session_path, method: 'delete'), class: 'last')%>
 	</ul>
+	<% else %>
+	<ul>
+		<%= link_to "Login", new_user_session_path, class: 'active'%>
+		<%= link_to "Cadastre-se", new_user_registration_path, class: 'active'%>
+		<%= link_to "Sobre", "pages/about", class: 'active'%>
+		<%= link_to "Contato", "pages/contact", class: 'last'%>
+	</ul>
+	<% end %>
 </div>
 
 <%= yield %>

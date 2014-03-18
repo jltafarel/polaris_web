@@ -14,11 +14,13 @@
 
 .logo{
 	float: left;
-	padding-right: 2%;
+	padding:0;
+	margin: 0;
 }
 
-#tabelaMargem{
-  margin-left: 50px;
+#margem{
+  margin-left: 75px;
+  margin-right: 75px; 
 }
 
 #fundoTela {

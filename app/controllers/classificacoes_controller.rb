@@ -28,7 +28,7 @@ class ClassificacoesController < ApplicationController
 
     respond_to do |format|
       if @classificacao.save
-        format.html { redirect_to @classificacao, notice: 'Classificacao was successfully created.' }
+        format.html { redirect_to @classificacao, notice: 'Salvo com sucesso.' }
         format.json { render action: 'show', status: :created, location: @classificacao }
       else
         format.html { render action: 'new' }

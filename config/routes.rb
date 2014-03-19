@@ -1,8 +1,10 @@
 Polaris::Application.routes.draw do
+  get "pesagens/pesagem_animal"
   devise_for :users
   get "pages/about"
   get "pages/contact"
   get "home/index"
+  match "/pesagens/pesagem_animal/:id", to: 'pesagens#pesagem_animal', via: [:get, :post]
   
   
   resources :exames

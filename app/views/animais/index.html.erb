@@ -19,12 +19,12 @@
       <tr>
         <td><%= animal.nome %></td>
         <td><%= animal.identificacao %></td>
-        <td><%= animal.raca %></td>
-        <td><%= animal.propriedade %></td>
-        <td><%= animal.classificacao %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= animal.raca.raca %></td>
+        <td><%= animal.propriedade.nome %></td>
+        <td><%= animal.classificacao.classificao %></td>
+        <td><%= link_to 'Abrir', animal %></td>
+        <td><%= link_to 'Editar', edit_animal_path(animal) %></td>
+        <td><%= link_to 'Excluir', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Animal', new_animal_path %>
+<%= link_to 'Cadastrar Novo animal', new_animal_path %>

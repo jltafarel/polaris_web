@@ -11,7 +11,6 @@
     </div>
   <% end %>
   
-  <div id="tabelaMargem">
   	<table>
   		<tr>
   			<td><%= f.label "Nome: " %></td>
@@ -21,22 +20,23 @@
   			<td><%= f.label "Identificação: " %></td>
  			<td><%= f.text_field :identificacao %></td>
   		</tr>
-  		<tr>
+    	<tr>
+    		<td><%= f.label "Classificação: " %></td>
+  			<td><%= f.select :classificacao_id, Classificacao.find(:all).collect {|item| [item.classificao, item.id]} %></td>
+  			<td><%= link_to "...", controller:"classificacoes" , action:"new" %></td>
+		</tr>
+		<tr>
   			<td><%= f.label "Raça: " %></td>
     		<td><%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]} %></td>
+    		<td><%= link_to "...", controller:"racas", action:"new" %></td>
   		</tr>
-  		<tr>
+		<tr>
   			<td><%= f.label :propriedade_id %></td>
   			<td><%= f.text_field :propriedade_id %></td>			
     	</tr>
-    	<tr>
-    		<td><%= f.label "Classificação: " %></td>
-  			<td><%= f.select :classificacao_id, Classificacao.find(:all).collect {|item| [item.classificacao, item.id]} %></td>
-		</tr>
   		<tr>
   			<td colspan="2"><%= f.submit "Cadastrar"%></td>
     	</tr>	
-    </table>	
-  </div>  	 
+    </table>	 	 
   	  	    	  	
 <% end %>

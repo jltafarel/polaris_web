@@ -8,39 +8,37 @@
 </head>
 <body id="fundoTela">
 	<div id='cssmenu'>
-	<%= link_to (image_tag 'logo.png'), root_path, class: 'logo' %>
-	<% if user_signed_in? %>
-	<ul>
-   		<li><a href='/'><span>Principal</span></a></li>
-   		<li class='has-sub'><a href='#'><span>Cadastros</span></a>
-      		<ul>
-         		<li><a href='/animais/new'><span>Animais</span></a></li>
-         		<li><a href='/exames/new'><span>Exames</span></a></li>
-         		<li><a href='/medicamentos/new'><span>Medicamentos</span></a></li>
-      		</ul>
-   		</li>
-   		<li class='has-sub'><a href='#'><span>Relatorios</span></a>
-      		<ul>
-         		<li><a href='/animais/'><span>Animais</span></a></li>
-         		<li><a href='/exames/'><span>Exames</span></a></li>
-         		<li><a href='#'><span>Medicamentos</span></a></li>
-      		</ul>
-   		</li>
-   		<%= content_tag(:li, link_to("Opções", edit_user_registration_path), class: 'last')%>
-   		<%= content_tag(:li, link_to("Logout", destroy_user_session_path, method: 'delete'), class: 'last')%>
-   		<span><%= current_user.email%></span>
-	</ul>
-	<% else %>
-	<ul>
-		<%= link_to "Login", new_user_session_path, class: 'active'%>
-		<%= link_to "Cadastre-se", new_user_registration_path, class: 'active'%>
-		<%= link_to "Sobre", "pages/about", class: 'active'%>
-		<%= link_to "Contato", "pages/contact", class: 'last'%>
-	</ul>
-	<% end %>
-</div>
-
-<%= yield %>
-
+		<% if user_signed_in? %>
+			<ul>
+   				<%= content_tag(:li, link_to("Principal", root_path)) %>
+   				<li class='has-sub'><a href='#'><span>Cadastros</span></a>
+      				<ul>
+         				<%= content_tag(:li, link_to("Animais", new_animal_path)) %>
+         				<%= content_tag(:li, link_to("Exames", new_exame_path)) %>
+         				<%= content_tag(:li, link_to("Medicamntos", new_medicamento_path)) %>
+      				</ul>
+   				</li>
+   				<li class='has-sub'><a href='#'><span>Relatorios</span></a>
+      				<ul>
+         				<%= content_tag(:li, link_to("Animais", animais_path)) %>
+         				<%= content_tag(:li, link_to("Exames", exames_path)) %>
+         				<%= content_tag(:li, link_to("Medicamntos", medicamentos_path)) %>
+      				</ul>
+   				</li>
+   				<%= content_tag(:li, link_to("Opções", edit_user_registration_path), class: 'last')%>
+   				<%= content_tag(:li, link_to("Logout", destroy_user_session_path, method: 'delete'), class: 'last')%>
+			</ul>
+		<% else %>
+			<ul>
+				<%= link_to "Login", new_user_session_path, class: 'active'%>
+				<%= link_to "Cadastre-se", new_user_registration_path, class: 'active'%>
+				<%= link_to "Sobre", "pages/about", class: 'active'%>
+				<%= link_to "Contato", "pages/contact", class: 'last'%>
+			</ul>
+		<% end %>
+	</div>
+	<div id="margem">
+		<%= yield %>
+	</div>
 </body>
 </html>

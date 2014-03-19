@@ -12,18 +12,23 @@
 
 <p>
   <strong>Raca:</strong>
-  <%= @animal.raca %>
-</p>
-
-<p>
-  <strong>Propriedade:</strong>
-  <%= @animal.propriedade %>
+  <%= @animal.raca.raca %>
 </p>
 
 <p>
   <strong>Classificacao:</strong>
-  <%= @animal.classificacao %>
+  <%= @animal.classificacao.classificao %>
 </p>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animais_path %>
+<p>
+  <strong>Propriedade:</strong>
+  <%= @animal.propriedade.nome %>
+</p>
+<p>
+   <strong>Ultima pesagem: </strong>
+   <%= Pesagem.find(:last, :conditions => ['animal_id = ?', @animal.id]).peso %>
+   <%= link_to "Pesagens", '/pesagens/pesagem_animal/' + @animal.id.to_s %>
+</p>
+
+<%= link_to 'Editar', edit_animal_path(@animal) %> |
+<%= link_to 'Lista de animais', animais_path %>

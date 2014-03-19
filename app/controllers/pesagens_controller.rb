@@ -7,6 +7,9 @@ class PesagensController < ApplicationController
     @pesagens = Pesagem.all
   end
 
+  def pesagem_animal
+    @pesagens = Pesagem.find(:all, :conditions => ['animal_id = ?', params[:id]])
+  end
   # GET /pesagens/1
   # GET /pesagens/1.json
   def show

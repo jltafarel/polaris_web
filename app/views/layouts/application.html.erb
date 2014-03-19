@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="fundoTela">
-	<div id='cssmenu'>
+	<header id='cssmenu'>
 		<% if user_signed_in? %>
 			<ul>
    				<%= content_tag(:li, link_to("Principal", root_path)) %>
@@ -32,13 +32,16 @@
 			<ul>
 				<%= link_to "Login", new_user_session_path, class: 'active'%>
 				<%= link_to "Cadastre-se", new_user_registration_path, class: 'active'%>
-				<%= link_to "Sobre", "pages/about", class: 'active'%>
-				<%= link_to "Contato", "pages/contact", class: 'last'%>
+				<%= link_to "Sobre", "about", class: 'active'%>
+				<%= link_to "Contato", "contact", class: 'last'%>
 			</ul>
 		<% end %>
-	</div>
-	<div id="margem">
+	</header>
+	<div id="content">
 		<%= yield %>
 	</div>
+	<footer>
+		<span>Developed by <%= link_to "Jose Luiz Tafarel", 'http://github.com/jltafarel'%> e <%= link_to "Anderson Vasconcelos", 'http://github.com/and3rs0n'%></span>
+	</footer>
 </body>
 </html>

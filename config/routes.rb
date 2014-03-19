@@ -1,11 +1,15 @@
 Polaris::Application.routes.draw do
+  root :to => 'home#index'
+  
   get "pesagens/pesagem_animal"
+  
   devise_for :users
-  get "pages/about"
-  get "pages/contact"
-  get "home/index"
+  
   match "/pesagens/pesagem_animal/:id", to: 'pesagens#pesagem_animal', via: [:get, :post]
   
+  match "/contact", to: 'pages#contact', via: [:get, :post]
+  
+  match '/about', to: 'pages#about', via: [:get, :post]
   
   resources :exames
 
@@ -43,7 +47,6 @@ Polaris::Application.routes.draw do
 
   resources :racas
   
-  root :to => 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

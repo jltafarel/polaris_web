@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_bootstrap
  *= require_tree .
  */
 
@@ -18,7 +19,7 @@
 	margin: 0;
 }
 
-#margem{
+#content{
   margin-left: 75px;
   margin-right: 75px; 
 }
@@ -189,5 +190,15 @@
 #cssmenu .has-sub .has-sub ul li a:hover {
   background: #6238e8;
 }
-
-
+footer{
+	bottom: 2px;
+	position: fixed;
+	color: #000000;
+}
+footer span a:visited{
+	color: #000000;
+}
+footer span a:hover{
+	color: #transparent;
+	background-color: #E7E6E6;
+}

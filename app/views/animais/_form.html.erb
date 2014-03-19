@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  
   	<table>
   		<tr>
   			<td><%= f.label "Nome: " %></td>
@@ -27,7 +26,7 @@
 		</tr>
 		<tr>
   			<td><%= f.label "Raça: " %></td>
-    		<td><%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]} %></td>
+    		<td><%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]}%></td>
     		<td><%= link_to "...", controller:"racas", action:"new" %></td>
   		</tr>
 		<tr>

@@ -6,7 +6,11 @@ class VacinasController < ApplicationController
   def index
     @vacinas = Vacina.all
   end
-
+  
+  def historico_vacinas
+    @vacinas = Vacina.find(:all, :conditions => ['animal_id = ?', params[:id] ])   
+  end
+  
   # GET /vacinas/1
   # GET /vacinas/1.json
   def show

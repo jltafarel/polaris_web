@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Identificação animal:</strong>
+  <%= @pesagem.animal.identificacao %>
+</p>
+<p>
+  <strong>Nome:</strong>
+  <%= @pesagem.animal.nome %>
+</p>
+<p>
   <strong>Peso:</strong>
   <%= @pesagem.peso %>
 </p>
@@ -10,10 +18,4 @@
   <%= @pesagem.data %>
 </p>
 
-<p>
-  <strong>Animal:</strong>
-  <%= @pesagem.animal %>
-</p>
-
-<%= link_to 'Edit', edit_pesagem_path(@pesagem) %> |
-<%= link_to 'Back', pesagens_path %>
+<%= link_to 'Voltar', '/pesagens/pesagem_animal/'+@pesagem.animal.id.to_s %>

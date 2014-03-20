@@ -10,18 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+	 <div class="field">
+    <%= f.label :animal_id %><br>
+    <%= f.text_field :animal_id, :value => params[:format], :readonly=>true %>
+  </div>
   <div class="field">
     <%= f.label :tipo_exame_id %><br>
-    <%= f.text_field :tipo_exame_id %>
+    <%= f.select :tipo_exame_id, TipoExame.find(:all).collect { |item| [item.tipo_exame, item.id]} %>
+    <%= link_to 'Novo tipo exame', new_tipo_exame_path %>
   </div>
   <div class="field">
     <%= f.label :data %><br>
     <%= f.date_select :data %>
-  </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

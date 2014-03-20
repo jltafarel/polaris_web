@@ -7,9 +7,12 @@ Polaris::Application.routes.draw do
   
   match "/pesagens/pesagem_animal/:id", to: 'pesagens#pesagem_animal', via: [:get, :post]
   
+  match "/vacinas/historico_vacinas/:id", to: 'vacinas#historico_vacinas', via: [:get, :post]
+  
   match "/contact", to: 'pages#contact', via: [:get, :post]
   
   match '/about', to: 'pages#about', via: [:get, :post]
+  
   
   resources :exames
 

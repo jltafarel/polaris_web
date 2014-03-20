@@ -28,13 +28,30 @@
    <strong>Ultima pesagem: </strong>
    <% if pesagem = Pesagem.find(:last, :conditions => ['animal_id = ?', @animal.id]) %>
    	  <span> Kg <%= pesagem.peso %></span>
-   	  <strong>Data: </strong>>
+   	  <strong>Data: </strong>
    	  <%= pesagem.data%>
    	  <%= link_to "Pesagens", '/pesagens/pesagem_animal/' + @animal.id.to_s %>
    <% else %>	
    	  <%= link_to "Adicionar pesagem", new_pesagem_path(@animal.id) %>
    <% end %>	  
 </p>
+<p>
+	<% if vacinas = Vacina.where('animal_id = ?', @animal.id).empty? %>
+		<%= link_to 'Agendar vacina', new_vacina_path(@animal.id) %> 
+	<% else %>
+		a vacinas</br>
+		<%= link_to 'Agendar vacina', new_vacina_path(@animal.id) %> |
+		<%= link_to 'Historio de vacinas', '/vacinas/historico_vacinas/'+@animal.id.to_s %>
+	<% end %>		
+</p>
+<p>
+	<% if exames = Exame.where('animal_id = ?', @animal.id).empty? %>
+		<%= link_to 'Agendar exame', new_exame_path(@animal.id) %>
+	<% else %>
+		a exames
+	<% end %>		
+</p>
+
 
 <%= link_to 'Editar', edit_animal_path(@animal) %> |
 <%= link_to 'Lista de animais', animais_path %>

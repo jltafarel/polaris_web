@@ -12,21 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tipo_vacina_id %><br>
-    <%= f.text_field :tipo_vacina_id %>
+    <%= f.label :animal_id %><br>
+    <%= f.text_field :animal_id, :value=>params[:format], :readonly=>true %>
   </div>
+  
+  <div class="field">
+    <%= f.label :tipo_vacina_id %><br>
+    <%= f.select :tipo_vacina_id, TipoVacina.find(:all).collect {|item| [item.tipo_vacina, item.id]} %>
+    <%= link_to 'Novo tipo vacina', new_tipo_vacina_path %>
+  </div>
+  
   <div class="field">
     <%= f.label :medicamento_id %><br>
-    <%= f.select :medicamento_id, Medicamento.find(:all).collect {|item| [item.medicamento, item.id]} %>
+    <%= f.select :medicamento_id, Medicamento.find(:all).collect {|item| [item.nome, item.id]} %>
+    <%= link_to 'Novo Medicamento', new_medicamento_path %>
   </div>
-  <div class="field">
-    <%= f.label :animal_id %><br>
-    <%= f.text_field :animal_id %>
-  </div>
+  
   <div class="field">
     <%= f.label :data %><br>
     <%= f.date_select :data %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

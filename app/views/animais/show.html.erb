@@ -26,8 +26,14 @@
 </p>
 <p>
    <strong>Ultima pesagem: </strong>
-   <%= Pesagem.find(:last, :conditions => ['animal_id = ?', @animal.id]).peso %>
-   <%= link_to "Pesagens", '/pesagens/pesagem_animal/' + @animal.id.to_s %>
+   <% if pesagem = Pesagem.find(:last, :conditions => ['animal_id = ?', @animal.id]) %>
+   	  <span> Kg <%= pesagem.peso %></span>
+   	  <strong>Data: </strong>>
+   	  <%= pesagem.data%>
+   	  <%= link_to "Pesagens", '/pesagens/pesagem_animal/' + @animal.id.to_s %>
+   <% else %>	
+   	  <%= link_to "Adicionar pesagem", new_pesagem_path(@animal.id) %>
+   <% end %>	  
 </p>
 
 <%= link_to 'Editar', edit_animal_path(@animal) %> |

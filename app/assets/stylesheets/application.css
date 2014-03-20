@@ -21,7 +21,8 @@
 
 #content{
   margin-left: 75px;
-  margin-right: 75px; 
+  margin-right: 75px;
+  padding-top: 10px;  
 }
 
 #fundoTela {

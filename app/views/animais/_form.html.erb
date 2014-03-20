@@ -10,32 +10,31 @@
       </ul>
     </div>
   <% end %>
-  	<table>
-  		<tr>
-  			<td><%= f.label "Nome: " %></td>
-    		<td><%= f.text_field :nome%></td>
-  		</tr>
-  		<tr>
-  			<td><%= f.label "Identificação: " %></td>
- 			<td><%= f.text_field :identificacao %></td>
-  		</tr>
-    	<tr>
-    		<td><%= f.label "Classificação: " %></td>
-  			<td><%= f.select :classificacao_id, Classificacao.find(:all).collect {|item| [item.classificao, item.id]} %></td>
-  			<td><%= link_to "...", controller:"classificacoes" , action:"new" %></td>
-		</tr>
-		<tr>
-  			<td><%= f.label "Raça: " %></td>
-    		<td><%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]}%></td>
-    		<td><%= link_to "...", controller:"racas", action:"new" %></td>
-  		</tr>
-		<tr>
-  			<td><%= f.label :propriedade_id %></td>
-  			<td><%= f.text_field :propriedade_id %></td>			
-    	</tr>
-  		<tr>
-  			<td colspan="2"><%= f.submit "Cadastrar"%></td>
-    	</tr>	
-    </table>	 	 
+ 	<div class="field">		 
+  		<%= f.label "Nome: " %></br>
+    	<%= f.text_field :nome %>
+  	</div>
+  	<div class="field">
+  		<%= f.label "Identificação: " %></br>
+ 		<%= f.text_field :identificacao %>
+  	</div>
+    <div class="field">
+    	<%= f.label "Classificação: " %></br>
+  		<%= f.select :classificacao_id, Classificacao.find(:all).collect {|item| [item.classificao, item.id]} %>
+  		<%= link_to "...", new_classificacao_path %>
+	</div>
+	<div class="field">
+  		<%= f.label "Raça: " %></br>
+    	<%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]}%>
+    	<%= link_to "...", new_raca_path %></td>
+  	</div>
+	<div class="field">
+  		<%= f.label :propriedade_id %></br>
+  		<%= f.text_field :propriedade_id %>			
+  	</div>
+  	<div class="actions">
+  		<%= f.submit "Cadastrar" %>
+   	</div>
+    	 	 
   	  	    	  	
 <% end %>

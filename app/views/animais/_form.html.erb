@@ -20,12 +20,12 @@
   	</div>
     <div class="field">
     	<%= f.label "Classificação: " %></br>
-  		<%= f.select :classificacao_id, Classificacao.find(:all).collect {|item| [item.classificao, item.id]} %>
+  		<%= f.collection_select :classificacao_id, Classificacao.all, :id, :classificacao %>
   		<%= link_to "...", new_classificacao_path %>
 	</div>
 	<div class="field">
   		<%= f.label "Raça: " %></br>
-    	<%= f.select :raca_id, Raca.find(:all).collect {|item| [item.raca, item.id]}%>
+    	<%= f.collection_select :raca_id, Raca.all, :id, :raca%>
     	<%= link_to "...", new_raca_path %></td>
   	</div>
 	<div class="field">

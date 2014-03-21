@@ -16,7 +16,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_exame_id %><br>
-    <%= f.select :tipo_exame_id, TipoExame.find(:all).collect { |item| [item.tipo_exame, item.id]} %>
+    <%= f.collection_select :tipo_exame_id, TipoExame.all, :id, :tipo_exame %>
     <%= link_to 'Novo tipo exame', new_tipo_exame_path %>
   </div>
   <div class="field">

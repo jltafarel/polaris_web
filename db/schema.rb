@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317225526) do
+ActiveRecord::Schema.define(version: 20140419133327) do
 
   create_table "animais", force: true do |t|
     t.string   "nome"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20140317225526) do
   add_index "cios", ["cobertura_id"], name: "index_cios_on_cobertura_id", using: :btree
 
   create_table "classificacoes", force: true do |t|
-    t.string   "classificao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "classificacao"
   end
 
   create_table "coberturas", force: true do |t|
@@ -154,9 +154,11 @@ ActiveRecord::Schema.define(version: 20140317225526) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+    t.integer  "propriedade_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["propriedade_id"], name: "index_users_on_propriedade_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "usuarios", force: true do |t|

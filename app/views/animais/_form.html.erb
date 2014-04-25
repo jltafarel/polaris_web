@@ -28,10 +28,6 @@
     	<%= f.collection_select :raca_id, Raca.all, :id, :raca%>
     	<%= link_to "...", new_raca_path %></td>
   	</div>
-	<div class="field">
-  		<%= f.label :propriedade_id %></br>
-  		<%= f.text_field :propriedade_id %>			
-  	</div>
   	<div class="actions">
   		<%= f.submit "Cadastrar" %>
    	</div>

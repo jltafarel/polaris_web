@@ -13,7 +13,7 @@
   <tbody>
     <% @classificacoes.each do |classificacao| %>
       <tr>
-        <td><%= classificacao.classificao %></td>
+        <td><%= classificacao.classificacao %></td>
         <td><%= link_to 'Show', classificacao %></td>
         <td><%= link_to 'Edit', edit_classificacao_path(classificacao) %></td>
         <td><%= link_to 'Destroy', classificacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>

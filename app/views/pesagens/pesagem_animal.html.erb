@@ -16,7 +16,7 @@
   <tbody>
     <% @pesagens.each do |pesagem| %>
       <tr>
-      	<td><%= pesagem.animal.identificacao %></td>
+      	<td><%= pesagem.animal.nome %></td>
         <td><%= pesagem.peso %></td>
         <td><%= pesagem.data %></td>
         <td><%= link_to 'Excluir', pesagem, method: :delete, data: { confirm: 'Excluir '+pesagem.data.to_s+'?' } %></td>

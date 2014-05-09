@@ -5,4 +5,6 @@ class Animal < ActiveRecord::Base
   belongs_to :raca
   belongs_to :propriedade
   belongs_to :classificacao
+  
+  scope :por_id, ->(id) {where(:id => id)}
 end

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140419133327) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "animais", force: true do |t|
     t.string   "nome"
     t.string   "identificacao"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140419133327) do
   create_table "classificacoes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "classificacao"
+    t.string   "classificacao", default: ""
   end
 
   create_table "coberturas", force: true do |t|

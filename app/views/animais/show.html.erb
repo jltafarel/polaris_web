@@ -36,20 +36,17 @@
    <% end %>	  
 </p>
 <p>
-	<% if vacinas = Vacina.where('animal_id = ?', @animal.id).empty? %>
-		<%= link_to 'Agendar vacina', new_vacina_path(@animal.id) %> 
-	<% else %>
+	<% if !vacinas = Vacina.where('animal_id = ?', @animal.id).empty? %>
 		a vacinas</br>
+	<% end %>
 		<%= link_to 'Agendar vacina', new_vacina_path(@animal.id) %> |
-		<%= link_to 'Historio de vacinas', '/vacinas/historico_vacinas/'+@animal.id.to_s %>
-	<% end %>		
+		<%= link_to 'Historio de vacinas', '/vacinas/historico_vacinas/'+@animal.id.to_s %>		
 </p>
 <p>
-	<% if exames = Exame.where('animal_id = ?', @animal.id).empty? %>
-		<%= link_to 'Agendar exame', new_exame_path(@animal.id) %>
-	<% else %>
-		a exames
+	<% if !exames = Exame.where('animal_id = ?', @animal.id).empty? %>
+		
 	<% end %>		
+	<%= link_to 'Agendar exame', new_exame_path(@animal.id) %>	
 </p>
 
 

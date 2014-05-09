@@ -8,7 +8,7 @@ class VacinasController < ApplicationController
   end
   
   def historico_vacinas
-    @vacinas = Vacina.find(:all, :conditions => ['animal_id = ?', params[:id] ])   
+    @vacinas = Vacina.por_animal params[:id]   
   end
   
   # GET /vacinas/1

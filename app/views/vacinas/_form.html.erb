@@ -18,13 +18,13 @@
   
   <div class="field">
     <%= f.label :tipo_vacina_id %><br>
-    <%= f.select :tipo_vacina_id, TipoVacina.find(:all).collect {|item| [item.tipo_vacina, item.id]} %>
+    <%= f.collection_select :tipo_vacina_id, TipoVacina.all, :id, :tipo_vacina %>
     <%= link_to 'Novo tipo vacina', new_tipo_vacina_path %>
   </div>
   
   <div class="field">
     <%= f.label :medicamento_id %><br>
-    <%= f.select :medicamento_id, Medicamento.find(:all).collect {|item| [item.nome, item.id]} %>
+    <%= f.collection_select :medicamento_id, Medicamento.all, :id, :medicamento %>
     <%= link_to 'Novo Medicamento', new_medicamento_path %>
   </div>
   

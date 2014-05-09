@@ -4,4 +4,6 @@ class Vacina < ActiveRecord::Base
   belongs_to :tipo_vacina
   belongs_to :medicamento
   belongs_to :animal
+  
+  scope :por_animal, ->(animal_id) {where :animal_id => animal_id}
 end
